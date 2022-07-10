@@ -1,0 +1,64 @@
+@use "sass:selector";
+@use 'normalize';
+
+// --- theming --- //
+
+@use '@material/theme'
+with (
+	$background: #fbfffc,
+	$surface: #fff7ff,
+	$primary: #c8e6c9,
+	$secondary: #d1c4e9,
+)
+;
+@use "@material/theme/custom-properties";
+
+
+
+@use "@material/shape"
+// with (
+// 	$small-component-radius: 6px,
+// 	$medium-component-radius: 4px,
+// 	$large-component-radius: 0px
+// )
+;
+
+@use '@material/typography';
+
+
+// --- utilies --- //
+
+@use "@material/ripple";
+@use '@material/rtl';
+@use "@material/layout-grid/mdc-layout-grid";
+
+// --- components --- //
+
+@use "@material/icon-button/styles";
+@use "@material/top-app-bar/mdc-top-app-bar";
+
+body {
+  @include theme.property(background-color, "background")
+}
+
+.jumbotron {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+
+  @media (min-width: 90ch) {
+    flex-flow: row-reverse nowrap;
+  }
+
+  &--menu {
+    min-height: 100vh;
+    min-width: 30ch;
+    flex: 1 1 40ch;
+  }
+
+  &--promo {
+    min-width: min(60ch, 100%);
+    flex: 1 1 80ch;
+  }
+}

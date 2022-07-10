@@ -1,0 +1,26 @@
+{
+	"include": [
+    "src/main/resources/theme/**/*.ts"
+  ],
+
+	"compilerOptions": {
+		"lib": ["ES2020", "DOM"],	
+		"moduleResolution": "Node",
+		"module": "ES2020",
+		"target": "ES5",
+
+		"sourceMap": true,
+		"noImplicitAny": true,
+
+		"skipLibCheck": true,
+		"allowJs": true,
+    "watch": true,
+
+		"baseUrl": "./",
+		"outDir": "./dist/",
+		"paths": {
+			"@dd/*": ["src/main/resources/theme/common/*"]
+		},
+		"types": ["material-components-web"]
+	}
+}
