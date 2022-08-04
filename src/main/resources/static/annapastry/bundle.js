@@ -28529,6 +28529,136 @@ _material_auto_init_index__WEBPACK_IMPORTED_MODULE_1__["default"].register('MDCT
 
 /***/ }),
 
+/***/ "./src/main/resources/theme/annapastry/details-summary/index.ts":
+/*!**********************************************************************!*\
+  !*** ./src/main/resources/theme/annapastry/details-summary/index.ts ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Accordion": () => (/* binding */ Accordion)
+/* harmony export */ });
+var Accordion = /** @class */ (function () {
+    function Accordion(el) {
+        var _this = this;
+        this.isClosing = false;
+        this.isExpanding = false;
+        // Store the <details> element
+        this.el = el;
+        // Store the <summary> element
+        this.summary = el.querySelector('summary');
+        // Store the <div class="content"> element
+        this.content = el.querySelector('.content');
+        // Detect user clicks on the summary element
+        this.summary.addEventListener('click', function (e) { return _this.handleClick(e); });
+    }
+    Accordion.prototype.handleClick = function (e) {
+        // Stop default behaviour from the browser
+        e.preventDefault();
+        // Add an overflow on the <details> to avoid content overflowing
+        this.el.style.overflow = 'hidden';
+        // Check if the element is being closed or is already closed
+        if (this.isClosing || !this.el.open) {
+            this.open();
+            // Check if the element is being openned or is already open
+        }
+        else if (this.isExpanding || this.el.open) {
+            this.shrink();
+        }
+    };
+    Accordion.prototype.shrink = function () {
+        var _this = this;
+        // Set the element as "being closed"
+        this.isClosing = true;
+        // Store the current height of the element
+        var startHeight = "".concat(this.el.offsetHeight, "px");
+        // Calculate the height of the summary
+        var endHeight = "".concat(this.summary.offsetHeight, "px");
+        // Store the current width of the element
+        // const startWidth = `${this.el.offsetWidth}px`;
+        // Calculate the width of the summary
+        // // const endWidth = `${this.summary.offsetWidth}px`;
+        // If there is already an animation running
+        if (this.animation) {
+            // Cancel the current animation
+            this.animation.cancel();
+        }
+        // Start a WAAPI animation
+        this.animation = this.el.animate({
+            // Set the keyframes from the startHeight to endHeight
+            height: [startHeight, endHeight],
+            // // width: [startWidth, endWidth]
+        }, {
+            duration: 400,
+            easing: 'ease'
+        });
+        // When the animation is complete, call onAnimationFinish()
+        this.animation.onfinish = function () { return _this.onAnimationFinish(false); };
+        // If the animation is cancelled, isClosing variable is set to false
+        this.animation.oncancel = function () { return _this.isClosing = false; };
+    };
+    Accordion.prototype.open = function () {
+        var _this = this;
+        // Apply a fixed height on the element
+        this.el.style.height = "".concat(this.el.offsetHeight, "px");
+        // this.el.style.width = `${this.el.offsetWidth}px`;
+        // Force the [open] attribute on the details element
+        this.el.open = true;
+        // Wait for the next frame to call the expand function
+        window.requestAnimationFrame(function () { return _this.expand(); });
+    };
+    Accordion.prototype.expand = function () {
+        var _this = this;
+        // Set the element as "being expanding"
+        this.isExpanding = true;
+        // Get the current fixed height of the element
+        var startHeight = "".concat(this.el.offsetHeight, "px");
+        // Calculate the open height of the element (summary height + content height)
+        var endHeight = "".concat(this.summary.offsetHeight + this.content.offsetHeight, "px");
+        // Get the current fixed height of the element
+        // // const startWidth = `${this.el.offsetWidth}px`;
+        // Calculate the open height of the element (summary height + content height)
+        // // // const endWidth = `${this.summary.offsetWidth + this.content.offsetWidth}px`;
+        // If there is already an animation running
+        if (this.animation) {
+            // Cancel the current animation
+            this.animation.cancel();
+        }
+        // Start a WAAPI animation
+        this.animation = this.el.animate({
+            // Set the keyframes from the startHeight to endHeight
+            height: [startHeight, endHeight],
+            // // width: [startWidth, endWidth]
+        }, {
+            duration: 400,
+            easing: 'ease'
+        });
+        // When the animation is complete, call onAnimationFinish()
+        this.animation.onfinish = function () { return _this.onAnimationFinish(true); };
+        // If the animation is cancelled, isExpanding variable is set to false
+        this.animation.oncancel = function () { return _this.isExpanding = false; };
+    };
+    Accordion.prototype.onAnimationFinish = function (open) {
+        // Set the open attribute based on the parameter
+        this.el.open = open;
+        // Clear the stored animation
+        this.animation = null;
+        // Reset isClosing & isExpanding
+        this.isClosing = false;
+        this.isExpanding = false;
+        // Remove the overflow hidden and the fixed height
+        this.el.style.height = this.el.style.overflow = '';
+        this.el.style.width = this.el.style.overflow = '';
+    };
+    return Accordion;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/main/resources/theme/annapastry/main.ts":
 /*!*****************************************************!*\
   !*** ./src/main/resources/theme/annapastry/main.ts ***!
@@ -28538,7 +28668,66 @@ _material_auto_init_index__WEBPACK_IMPORTED_MODULE_1__["default"].register('MDCT
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dd_mdc_initializer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @dd/mdc-initializer */ "./src/main/resources/theme/common/mdc-initializer/index.ts");
+/* harmony import */ var _details_summary__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./details-summary */ "./src/main/resources/theme/annapastry/details-summary/index.ts");
 
+
+window.addEventListener('load', function () {
+    var video = document.querySelector('.jumbotron--underlay > video');
+    // video.playbackRate = .1
+    // window.requestAnimationFrame(() => {
+    //   video.currentTime += 1/60 % video.duration
+    // })
+    var doRepeat = function (root) {
+        if (root === void 0) { root = document; }
+        root.querySelectorAll('[data-repeat]')
+            .forEach(function (repeatable) {
+            for (var count = 0; count < (repeatable.getAttribute("data-repeat") - 1); count++) {
+                var clone = repeatable.cloneNode(true);
+                repeatable.parentNode.insertBefore(clone, repeatable);
+                if (root.querySelectorAll)
+                    doRepeat(clone);
+            }
+        });
+    };
+    doRepeat(document);
+    document.querySelectorAll('[data-needs-src]')
+        .forEach(function (srcable, i) {
+        var wm = Number.parseInt(srcable.getAttribute('data-wm')) || 500;
+        var wx = Number.parseInt(srcable.getAttribute('data-wx')) || 500;
+        var hm = Number.parseInt(srcable.getAttribute('data-hm')) || 400;
+        var hx = Number.parseInt(srcable.getAttribute('data-hx')) || 400;
+        var w = Math.floor(Math.random() * (wx - wm)) + wm;
+        var h = Math.floor(Math.random() * (hx - hm)) + hm;
+        srcable.setAttribute("src", "https://picsum.photos/id/" + (1080) + "/" + w + "/" + h);
+    });
+    document.querySelectorAll('details.default')
+        .forEach(function (details) {
+        new _details_summary__WEBPACK_IMPORTED_MODULE_1__.Accordion(details);
+    });
+    document.querySelectorAll('.product-detail_description--collapsible')
+        .forEach(function (decription) {
+        var trigger = decription.querySelector('.product-detail_description--collapsible-trigger');
+        var container = decription.querySelector('.product-detail_description--collapsible-container');
+        var content = decription.querySelector('.product-detail_description--collapsible-content');
+        var opened = false;
+        trigger.addEventListener('click', function () {
+            if (opened) {
+                container.style.height = "0px";
+            }
+            else {
+                container.style.height = getComputedStyle(content).height;
+            }
+            opened = !opened;
+            trigger.querySelectorAll('.material-icons.mdc-icon-button__icon')
+                .forEach(function (icon) { return icon.classList.toggle('mdc-icon-button__icon--on'); });
+            window.addEventListener('resize', function () {
+                if (!opened)
+                    return;
+                container.style.height = getComputedStyle(content).height;
+            });
+        });
+    });
+});
 (0,_dd_mdc_initializer__WEBPACK_IMPORTED_MODULE_0__.autoInit)();
 console.log("ok");
 
@@ -31256,7 +31445,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("7df2d80bc07ece0c1606")
+/******/ 		__webpack_require__.h = () => ("6d6d4b079930a3f44250")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
