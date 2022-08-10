@@ -28673,7 +28673,27 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('load', function () {
     var video = document.querySelector('.jumbotron--underlay > video');
-    // video.playbackRate = .1
+    var transitionRate = function (expectedRate, changeFunction, callbackTimeout) {
+        console.log("rate", video.playbackRate, expectedRate - 0.001 < video.playbackRate, video.playbackRate < expectedRate + 0.001, video.playbackRate < .1, 10 < video.playbackRate);
+        if ((expectedRate - 0.001 < video.playbackRate && video.playbackRate < expectedRate + 0.001)
+            || video.playbackRate < .1 || 10 < video.playbackRate) {
+            video.playbackRate = expectedRate;
+            return;
+        }
+        video.playbackRate = changeFunction(video.playbackRate);
+        setTimeout(function () { return transitionRate(expectedRate, changeFunction, callbackTimeout); }, callbackTimeout);
+    };
+    if (video) {
+        transitionRate(.5, function (rate) { return rate < .5 ? .5 : rate * .97; }, 200);
+        var dhue_1 = 0;
+        var rotateHue_1 = function (t) { return setTimeout(function () {
+            dhue_1 = (dhue_1 + Math.random() * 1) % 360;
+            console.log("hue", dhue_1);
+            video.parentElement.style.filter = 'hue-rotate(' + dhue_1 + 'deg)';
+            rotateHue_1(t);
+        }, t); };
+        rotateHue_1(200);
+    }
     // window.requestAnimationFrame(() => {
     //   video.currentTime += 1/60 % video.duration
     // })
@@ -28698,7 +28718,7 @@ window.addEventListener('load', function () {
         var hx = Number.parseInt(srcable.getAttribute('data-hx')) || 400;
         var w = Math.floor(Math.random() * (wx - wm)) + wm;
         var h = Math.floor(Math.random() * (hx - hm)) + hm;
-        srcable.setAttribute("src", "https://picsum.photos/id/" + (1080) + "/" + w + "/" + h);
+        srcable.setAttribute("src", "https://picsum.photos/id/" + (1070 + i) + "/" + w + "/" + h);
     });
     document.querySelectorAll('details.default')
         .forEach(function (details) {
@@ -31445,7 +31465,7 @@ module.exports.formatError = function (err) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("6d6d4b079930a3f44250")
+/******/ 		__webpack_require__.h = () => ("5d262f59a588a177a43f")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

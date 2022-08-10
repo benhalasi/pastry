@@ -5,7 +5,7 @@
 // --- theming --- //
 
 $background: #fbfffc;
-$surface: #faf2fa;
+$surface: #f7f4f0;
 $primary: #c8e6c9;
 $secondary: #d1c4e9;
 
@@ -285,10 +285,41 @@ body {
   }
 }
 
+.about {
+
+  $break-width-m: 900px;
+  $break-width-m--1: 899px;
+
+  $break-width-l: 1400px;
+  $break-width-l--1: 1399px;
+
+  .on-mobile {
+    @media (min-width: $break-width-m) {
+      display: none !important;
+    }
+  }
+
+  .on-tablet {
+    @media (max-width: $break-width-m--1) {
+      display: none !important;
+    }
+
+    @media (min-width: $break-width-l) {
+      display: none !important;
+    }
+  }
+
+  .on-desktop {
+    @media (max-width: $break-width-l--1) {
+      display: none !important;
+    }
+  }
+}
+
 .product-page {
 
   $break-width: 1500px;
-  $break-width_p1: 1499px;
+  $break-width--1: 1499px;
 
   .on-mobile {
     @media (min-width: $break-width) {
@@ -297,7 +328,7 @@ body {
   }
 
   .on-desktop {
-    @media (max-width: $break-width_p1) {
+    @media (max-width: $break-width--1) {
       display: none;
     }
   }
@@ -414,7 +445,7 @@ body {
   .image-list {
     max-width: 100%;
 
-    @include image-list.masonry-columns(1, .5rem);
+    @include image-list.masonry-columns(2, .5rem);
     @include image-list.shape-radius(.5rem);
 
     @media (min-width: 600px) {

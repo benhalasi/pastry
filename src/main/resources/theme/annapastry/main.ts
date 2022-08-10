@@ -3,7 +3,39 @@ import { Accordion } from './details-summary'
 
 window.addEventListener('load', () => {
   const video = document.querySelector('.jumbotron--underlay > video') as HTMLVideoElement
-  // video.playbackRate = .1
+  
+  const transitionRate = (expectedRate: number, changeFunction: (rate: number) => number, callbackTimeout: number) => {
+    console.log("rate", video.playbackRate,
+      expectedRate - 0.001 < video.playbackRate,
+      video.playbackRate < expectedRate + 0.001,
+      video.playbackRate < .1,
+      10 < video.playbackRate
+    )
+    if (
+      (expectedRate - 0.001 < video.playbackRate && video.playbackRate < expectedRate + 0.001)
+      || video.playbackRate < .1 || 10 < video.playbackRate
+    ){
+      video.playbackRate = expectedRate
+      return;
+    }
+    
+    video.playbackRate = changeFunction(video.playbackRate)
+    setTimeout(() => transitionRate(expectedRate, changeFunction, callbackTimeout), callbackTimeout)
+  }
+
+  if (video) {
+    transitionRate(.5, rate => rate < .5 ? .5 : rate * .97, 200)
+
+    let dhue = 0;
+    const rotateHue = (t: number) => setTimeout(() => {
+      dhue = (dhue + Math.random() * 1) % 360
+      console.log("hue", dhue)
+      video.parentElement.style.filter = 'hue-rotate(' + dhue + 'deg)'
+      rotateHue(t)
+    }, t)
+
+    rotateHue(200)
+  }
   // window.requestAnimationFrame(() => {
   //   video.currentTime += 1/60 % video.duration
   // })
@@ -30,7 +62,7 @@ window.addEventListener('load', () => {
     const hx = Number.parseInt(srcable.getAttribute('data-hx')) || 400
     const w = Math.floor(Math.random() * (wx - wm)) + wm
     const h = Math.floor(Math.random() * (hx - hm)) + hm
-    srcable.setAttribute("src", "https://picsum.photos/id/" + (1080 ) + "/" + w + "/" + h)
+    srcable.setAttribute("src", "https://picsum.photos/id/" + (1070 +i) + "/" + w + "/" + h)
   })
 
   document.querySelectorAll('details.default')

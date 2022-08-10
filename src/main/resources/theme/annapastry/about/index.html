@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title data-th-text="${content.title}">Apastry</title>
+	<link rel="stylesheet" href="/static/annapastry/bundle.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
+</head>
+<body class="mdc-typography container-parent" style="min-height: 100vh; width: 100%;">
+  <main class="about" style="width: 100%; display: flex; flex-flow: row wrap; padding: 1rem; row-gap: 1rem; column-gap: 2rem;">
+    <img src="https://picsum.photos/id/1080/500/800" alt="" style="border-radius: .5rem; flex: 1 1 30%">
+    <section style="flex: 1 1 60ch;">
+      <div class="breadcrumb mdc-typography--caption" style="font-size: 1rem;">
+        <a class="breadcrumb-item" href="#">welcome page</a>
+        <a class="breadcrumb-item" href="#">product xzy</a>
+      </div>
+      <h1 class="mdc-typography--headline2" style="margin-block: 1rem;">A cukrászda</h1>
+      <p class="mdc-typography--body1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.</p>
+      <p class="mdc-typography--body1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.</p>
+      <h2 class="mdc-typography--headline3" style="margin-block: 1rem;">Lorem ipsum</h2>
+      <p class="mdc-typography--body1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.</p>
+      <h2 class="mdc-typography--headline3" style="margin-block: 1rem;">Dolor sit amet</h2>
+      <p class="mdc-typography--body1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.</p>
+      <div style="margin-top: 2rem;">
+        <div class="mdc-touch-target-wrapper">
+          <a href="mailto:us@example.com" class="mdc-button button-on-surface mdc-button--leading">
+            <span class="mdc-button__ripple"></span>
+            <span class="material-icons mdc-button__icon">email</span>
+            <span>us@example.com</span>
+          </a>
+        </div><br>
+        <div class="mdc-touch-target-wrapper">
+          <a href="tel:+361234123X" class="mdc-button button-on-surface mdc-button--leading">
+            <span class="mdc-button__ripple"></span>
+            <span class="material-icons mdc-button__icon">phone</span>
+            <span>+ 36 number number</span>
+          </a>
+        </div><br>
+        <div class="mdc-touch-target-wrapper">
+          <a href="#" class="mdc-button button-on-surface mdc-button--leading">
+            <span class="mdc-button__ripple"></span>
+            <span class="material-icons mdc-button__icon">place</span>
+            <span>Utca u. 9, Budapest, 9999</span>
+          </a>
+        </div><br>
+
+      </div>
+    </section>
+    <img src="https://picsum.photos/id/1080/500/800" alt="" style="border-radius: .5rem; flex: 1 1 30%">
+  </main>
+  <footer class="card-footer--wrapper" style="margin: 0; flex: 0 0 auto;">
+    <section class="container" style="display: flex; justify-content: center;">
+      <div class="card-footer">
+        <p>
+          Készült és karbantartott a <a href="#">dd.hu</a> által.
+        </p>  
+      </div>
+    </section>
+  </footer>
+  <script  src="/static/annapastry/bundle.js" data-th-src="${'/annapastry/bundle.js'}"></script>
+</body>

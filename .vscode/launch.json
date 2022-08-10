@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-AnnapastryShopApplication<annapastry-shop>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "hu.dd.client.annapastry.annapastryshop.AnnapastryShopApplication",
+      "projectName": "annapastry-shop",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
