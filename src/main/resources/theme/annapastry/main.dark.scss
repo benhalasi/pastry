@@ -207,7 +207,7 @@ body {
 
   &--underlay {
     position: absolute;
-    overflow: clip;
+    overflow: hidden;
     top: 0;
     left: 0;
     width: 100%;
@@ -418,7 +418,7 @@ body {
           }
 
           &-container {
-            overflow: clip;
+            overflow: hidden;
             transition: height .4s ease;
             height: 0;
           }

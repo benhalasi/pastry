@@ -56,11 +56,11 @@ with (
     font-weight: 300,
   ),
   $styles-body1: (
-    font-family: unquote("'Roboto Slab', serif"),
-    font-weight: 300
+    font-family: unquote("Roboto, sans-serif"),
+    font-weight: 300,
   ),
   $styles-body2: (
-    font-family: unquote("'Roboto Slab', serif"),
+    font-family: unquote("'Roboto', sans-serif"),
     font-weight: 300
   ),
   $styles-button: (
@@ -105,11 +105,11 @@ with (
 @include data-table.core-styles;
 @include data-table.theme-baseline;
 
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@200;300;400;500;600&family=Roboto+Slab:wght@200&family=Inconsolata:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@200;300;400;500;600&family=Roboto+Slab:wght@200&family=Roboto:wght@200&family=Inconsolata:wght@200;300&display=swap');
 @import "@material/button/styles";
 @import "@material/chips/styles";
 
-@import './scroll-snapping';
+// @import './scroll-snapping';
 @import './container';
 @import './cards';
 @import './details-summary';
@@ -191,7 +191,7 @@ body {
 
   &--underlay {
     position: absolute;
-    overflow: clip;
+    overflow: hidden;
     top: 0;
     left: 0;
     width: 100%;
@@ -433,7 +433,7 @@ body {
           }
 
           &-container {
-            overflow: clip;
+            overflow: hidden;
             transition: height .4s ease;
             height: 0;
           }
