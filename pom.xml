@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>hu.dd.client.annapastry</groupId>
 	<artifactId>annapastry-shop</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1.1-SNAPSHOT</version>
 	<name>annapastry-shop</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -68,15 +68,35 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<excludes>
+					<fork>true</fork>
+					<addResources>true</addResources>
+					<executable>true</executable>
+          <excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<!-- <exclude>application*.properties</exclude> -->
+				</excludes>
+			</resource>
+		</resources>
 	</build>
+
+
 
 </project>
