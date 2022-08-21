@@ -12,8 +12,8 @@
 
   <main class="jumbotron">
     <div class="jumbotron--underlay">
-      <image src="/static/_/fluid.png" data-th-src="${'/_/fluid.png'}"></image>
-      <video src="/static/_/fluidx.mov" data-th-src="${'/_/fluid.mov'}" preload="auto" autoplay loop muted></video>
+      <img class="thumbnail" src="/static/_/main/main.thumbnail.png" data-th-src="@{${thumbnail.src}}"></img>
+      <img loading="lazy" class="lazy" data-th-src="@{${jumbotron.src}}"></img>
     </div>
     <section class="jumbotron--menu">
       <h1 class="jumbotron--menu--headline mdc-typography--headline1">CUKRÁSZDA</h1>
@@ -50,17 +50,18 @@
     </section> -->
   </main>
 
-  <section class="card-list container" data-repeat="2">
+  <div style="height: 2.5rem;"></div>
+
+  <section class="card-list container" data-th-each="row : ${rows}" data-th-repeat="2">
     <div class="card card--borderless card-list-item">
       <h2 class="mdc-typography--headline2">Egy lista termékekről</h2>      
       <p class="mdc-typography--body2" data-repeat="2">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
       </p>
     </div>
-    <div class="card card--borderless card-list-item" data-repeat="3">
+    <div class="card card--borderless card-list-item" data-th-each="pic : ${row}" data-th-repeat="3">
       <div class="mdc-card__primary-action card__primary-action" tabindex="0">
-        <image class="mdc-card__media mdc-card__media--16-9" src="https://picsum.photos/id/1080/400/300" data-needs-src></image>
-        <!-- <image class="mdc-card__media mdc-card__media--16-9" src="https://picsum.photos/id/1080/20/20"></image> -->
+        <img loading="lazy" class="mdc-card__media mdc-card__media--16-9" data-th-src="@{${pic.src}}" data-th-needs-src src="https://picsum.photos/id/1080/400/300"></img>
       </div>
       <div class="card__primary">
         <h2 class="card__title mdc-typography mdc-typography--headline6">Egy termék, képpel és leírással</h2>

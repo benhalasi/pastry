@@ -232,26 +232,12 @@
       <div class="product-header--divider"></div>
       <section class="product-header--gallery">
         <ul class="mdc-image-list mdc-image-list--masonry image-list">
-          <li class="mdc-image-list__item" data-repeat="1">
-            <img class="mdc-image-list__image" src="#" data-needs-src data-wm="600" data-wx="1200" data-hm="800" data-hx="1200">
-            <!-- <img class="mdc-image-list__image" src="#" data-needs-src data-wm="40" data-wx="80" data-hm="40" data-hx="80" style="filter: blur(3px)"> -->
-            <div class="mdc-image-list__supporting">
-              <span class="mdc-image-list__label mdc-typography--caption" style="padding-inline: .25rem">Text label 1</span>
-            </div>
-          </li>
-          <li class="mdc-image-list__item" data-repeat="1">
-            <img class="mdc-image-list__image" src="#" data-needs-src data-wm="600" data-wx="1200" data-hm="800" data-hx="1200">
-            <!-- <img class="mdc-image-list__image" src="#" data-needs-src data-wm="40" data-wx="80" data-hm="40" data-hx="80" style="filter: blur(3px)"> -->
-            <div class="mdc-image-list__supporting">
-              <span class="mdc-image-list__label mdc-typography--caption" style="padding-inline: .25rem">Text label 2</span>
-            </div>
-          </li>
-          <li class="mdc-image-list__item" data-repeat="6">
-            <img class="mdc-image-list__image" src="#" data-needs-src data-wm="600" data-wx="1200" data-hm="800" data-hx="1200">
-            <!-- <img class="mdc-image-list__image" src="#" data-needs-src data-wm="40" data-wx="80" data-hm="40" data-hx="80" style="filter: blur(3px)"> -->
-            <div class="mdc-image-list__supporting">
+          <li class="mdc-image-list__item" data-th-each="pic : ${pics}" data-th-repeat="6">
+            <img loading="lazy" class="mdc-image-list__image" src="#" data-th-src="@{${pic.src}}" data-th-needs-src data-wm="600" data-wx="1200" data-hm="800" data-hx="1200">
+            <!-- <img loading="lazy" class="mdc-image-list__image" src="#" data-needs-src data-wm="40" data-wx="80" data-hm="40" data-hx="80" style="filter: blur(3px)"> -->
+            <!-- <div class="mdc-image-list__supporting">
               <span class="mdc-image-list__label mdc-typography--caption" style="padding-inline: .25rem">Text label</span>
-            </div>
+            </div> -->
           </li>
         </ul>
       </section>
