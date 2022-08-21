@@ -97,6 +97,26 @@ window.addEventListener('load', () => {
       })
     })
   })
+
+  document.querySelectorAll('.lazy').forEach((img: HTMLImageElement) => {
+    if ( img.hasAttribute('lazy-src') ){
+      img.setAttribute('src', img.getAttribute('lazy-src'))
+      img.removeAttribute('lazy-src')
+    }
+    const onload = () => {
+      img.style.opacity = '1'
+      img.classList.add('loaded')
+      console.log('lazy loaded')
+    }
+    img.addEventListener('load', onload)
+    if ( img.complete ) {
+      onload()
+    } else {
+      console.log('needs loading')
+      img.style.opacity = '0'
+      img.classList.remove('loaded')
+    }
+  })
 })
 
 autoInit()
