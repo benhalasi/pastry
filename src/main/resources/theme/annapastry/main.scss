@@ -283,6 +283,8 @@ body {
 }
 
 .card-list {
+  @extend .container;
+
   display: flex;
   flex-flow: row wrap;
   gap: .5rem;
@@ -295,9 +297,20 @@ body {
     max-width: 50ch;
   }
 
-  @media (min-width: 140ch) {
-    flex-flow: row nowrap;
-    justify-content: start;
+  .breaker {
+    height: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .card-list {
+
+    flex-wrap: nowrap;
+
+    .breaker {
+      display: none;
+    }
 
     .card-list-item {
       min-width: 40ch;

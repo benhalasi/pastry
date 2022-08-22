@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="content">
 	<title>Pastry</title>
 	<link rel="stylesheet" href="/static/annapastry/bundle.css" data-th-href="${'/annapastry/bundle.css'}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
@@ -12,8 +13,8 @@
 
   <main class="jumbotron">
     <div class="jumbotron--underlay">
-      <img class="thumbnail" src="/static/_/main/main.thumbnail.png" data-th-src="@{${thumbnail.src}}"></img>
-      <img loading="lazy" class="lazy" data-th-src="@{${jumbotron.src}}"></img>
+      <img class="thumbnail" src="/static/_/main/main.thumbnail.png" data-th-alt="${jumbotron.alt}" data-th-src="@{${thumbnail.src}}">
+      <img loading="lazy" class="lazy" data-th-alt="${jumbotron.alt}" data-th-src="@{${jumbotron.src}}">
     </div>
     <section class="jumbotron--menu">
       <h1 class="jumbotron--menu--headline mdc-typography--headline1">CUKRÁSZDA</h1>
@@ -52,48 +53,51 @@
 
   <div style="height: 2.5rem;"></div>
 
-  <section class="card-list container" data-th-each="row : ${rows}" data-th-repeat="2">
+  <section class="card-list" data-th-each="row : ${rows}" data-th-repeat="2">
     <div class="card card--borderless card-list-item">
       <h2 class="mdc-typography--headline2">Egy lista termékekről</h2>      
       <p class="mdc-typography--body2" data-repeat="2">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
       </p>
     </div>
-    <div class="card card--borderless card-list-item" data-th-each="pic : ${row}" data-th-repeat="3">
-      <div class="mdc-card__primary-action card__primary-action" tabindex="0">
-        <img loading="lazy" class="mdc-card__media mdc-card__media--16-9" data-th-src="@{${pic.src}}" data-th-needs-src src="https://picsum.photos/id/1080/400/300"></img>
-      </div>
-      <div class="card__primary">
-        <h2 class="card__title mdc-typography mdc-typography--headline6">Egy termék, képpel és leírással</h2>
-      </div>
-
-      <div class="card__secondary mdc-typography mdc-typography--body1">
-        Fugit temporibus, quisquam dolores ducimus debitis quibusdam, rerum totam, odit perferendis eveniet ad? Necessitatibus, nemo labore. Ipsum velit eveniet possimus voluptates exercitationem?
-      </div>
-      <div class="mdc-card__actions" style="padding-inline: 0;">
-        <div class="mdc-card__action-buttons card__actions">
-          <a href="/annapastry/product" data-th-href="${'/product'}" class="mdc-button button-on-surface mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span>Részletek</a>
+    <block data-th-each="pic, iteration : ${row}" data-th-remove="tag">
+      <div class="card card--borderless card-list-item" data-th-repeat="3">
+        <div class="mdc-card__primary-action card__primary-action" tabindex="0">
+          <img loading="lazy" class="mdc-card__media mdc-card__media--16-9" data-th-alt="${pic.alt}" data-th-title="${pic.title}" data-th-src="@{${pic.src}}" data-th-width="${pic.w}" data-th-height="${pic.h}" data-th-style="${pic.style}">
         </div>
-        <div class="mdc-card__action-icons" style="padding-inline: 0;">
-          <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites">
-            <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
-            <i class="material-icons mdc-icon-button__icon">favorite_border</i>
-          </button>
-          <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="Share" data-mdc-ripple-is-unbounded="true">share</button>
+        <div class="card__primary">
+          <h3 class="card__title mdc-typography mdc-typography--headline6">Egy termék, képpel és leírással</h3>
+        </div>
+  
+        <div class="card__secondary mdc-typography mdc-typography--body1">
+          Fugit temporibus, quisquam dolores ducimus debitis quibusdam, rerum totam, odit perferendis eveniet ad? Necessitatibus, nemo labore. Ipsum velit eveniet possimus voluptates exercitationem?
+        </div>
+        <div class="mdc-card__actions" style="padding-inline: 0;">
+          <div class="mdc-card__action-buttons card__actions">
+            <a href="/annapastry/product" data-th-href="${'/product'}" class="mdc-button button-on-surface mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span>Részletek</a>
+          </div>
+          <div class="mdc-card__action-icons" style="padding-inline: 0;">
+            <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites">
+              <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+              <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+            </button>
+            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="Share" data-mdc-ripple-is-unbounded="true">share</button>
+          </div>
+        </div>
+  
+        <div class="mdc-card__actions ">
+  
         </div>
       </div>
-
-      <div class="mdc-card__actions ">
-
-      </div>
-    </div>
+      <div data-th-if="${iteration.odd}" class="breaker"></div>
+    </block>
   </section>
 
   <section class="card-list container" style="margin-top: 2rem; justify-content: center;" data-repeat="1">
     <div class="card card-order">
       <div class="card-order--header">
         <div class="card-order--header-text">
-          <h3 class="mdc-typography--headline3">Rendelés</h3>      
+          <h2 class="mdc-typography--headline3">Rendelés</h2>      
           <p class="mdc-typography--body1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
           </p>
@@ -101,22 +105,22 @@
         <div class="card-order--header-email">
           <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
             <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">alternate_email</i>
-            <input type="email" autocomplete="email" class="mdc-text-field__input" id="text-field-hero-input">
+            <input type="email" autocomplete="email" class="mdc-text-field__input" id="email">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">E-mail</label>
+                <label for="email" class="mdc-floating-label">E-mail</label>
               </div>
               <div class="mdc-notched-outline__trailing"></div>
             </div>
           </div>
           <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
             <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">phone</i>
-            <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="text-field-hero-input">
+            <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="phone">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">Telefon</label>
+                <label for="phone" class="mdc-floating-label">Telefon</label>
               </div>
               <div class="mdc-notched-outline__trailing"></div>
             </div>
@@ -138,12 +142,12 @@
         <span class="mdc-notched-outline">
           <span class="mdc-notched-outline__leading"></span>
           <div class="mdc-notched-outline__notch">
-            <label for="text-field-hero-input" class="mdc-floating-label">Mit adhatunk?</label>
+            <label for="body" class="mdc-floating-label">Mit adhatunk?</label>
           </div>
           <span class="mdc-notched-outline__trailing"></span>
         </span>
         <!-- <span class="mdc-text-field__resizer"> -->
-          <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
+          <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" id="body" aria-label="Mit adhatunk?"></textarea>
         <!-- </span> -->
       </div>
       <div class="card-order--submit mdc-touch-target-wrapper">

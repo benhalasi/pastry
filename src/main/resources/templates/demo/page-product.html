@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="content">
   <title>Pastry</title>
 	<link rel="stylesheet" href="/static/annapastry/bundle.css" data-th-href="${'/annapastry/bundle.css'}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
@@ -81,7 +82,7 @@
           </p>
         </div>
         <div class="product-detail_description--collapsible">
-          <h3 class="mdc-typography--headline4 product-detail_description--collapsible-trigger" style="margin-block: .75rem">
+          <h2 class="mdc-typography--headline4 product-detail_description--collapsible-trigger" style="margin-block: .75rem">
             <span>
               Adagolás és összetevők
             </span>
@@ -92,7 +93,7 @@
             <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">expand_less</i>
             <i class="material-icons mdc-icon-button__icon">expand_more</i>
           </button>
-        </h3>
+        </h2>
         <div class="product-detail_description--collapsible-container">
           <div class="product-detail_description product-detail_description--collapsible-content">
             <p class="content product-detail_description--body2" style="flex-basis: 30ch;">
@@ -166,7 +167,7 @@
         <div class="card--borderless card-order" style="padding: 0;">
           <div class="card-order--header">
             <div class="card-order--header-text">
-              <h3 class="mdc-typography--headline3">Rendelés</h3>      
+              <h2 class="mdc-typography--headline3">Rendelés</h2>      
               <p class="mdc-typography--body1">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
               </p>
@@ -174,33 +175,33 @@
             <div class="card-order--header-email">
               <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">alternate_email</i>
-                <input type="email" autocomplete="email" class="mdc-text-field__input" id="text-field-hero-input">
+                <input type="email" autocomplete="email" class="mdc-text-field__input" id="email">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" class="mdc-floating-label">E-mail</label>
+                    <label for="email" class="mdc-floating-label">E-mail</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
               </div>
               <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">phone</i>
-                <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="text-field-hero-input">
+                <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="phone">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" class="mdc-floating-label">Telefon</label>
+                    <label for="body" class="mdc-floating-label">Telefon</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
               </div>
               <!-- <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">alternate_email</i>
-                <input class="mdc-text-field__input" id="text-field-hero-input">
+                <input class="mdc-text-field__input" id="body">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" claemailss="mdc-floating-label">E-mail</label>
+                    <label for="body" claemailss="mdc-floating-label">E-mail</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
@@ -211,12 +212,12 @@
             <span class="mdc-notched-outline">
               <span class="mdc-notched-outline__leading"></span>
               <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">Mit adhatunk?</label>
+                <label for="body" class="mdc-floating-label">Mit adhatunk?</label>
               </div>
               <span class="mdc-notched-outline__trailing"></span>
             </span>
             <!-- <span class="mdc-text-field__resizer"> -->
-              <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
+              <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" aria-label="Mit adhatunk?"></textarea>
               <!-- </span> -->
             </div>
             <div class="card-order--submit mdc-touch-target-wrapper">
@@ -233,7 +234,7 @@
       <section class="product-header--gallery">
         <ul class="mdc-image-list mdc-image-list--masonry image-list">
           <li class="mdc-image-list__item" data-th-each="pic : ${pics}" data-th-repeat="6">
-            <img loading="lazy" class="mdc-image-list__image" src="#" data-th-src="@{${pic.src}}" data-th-needs-src data-wm="600" data-wx="1200" data-hm="800" data-hx="1200">
+            <img loading="lazy" class="mdc-image-list__image" data-th-src="@{${pic.src}}" data-th-alt="${pic.alt}" data-th-title="${pic.title}" data-th-width="${pic.w}" data-th-height="${pic.h}" data-th-style="${pic.style}">
             <!-- <img loading="lazy" class="mdc-image-list__image" src="#" data-needs-src data-wm="40" data-wx="80" data-hm="40" data-hx="80" style="filter: blur(3px)"> -->
             <!-- <div class="mdc-image-list__supporting">
               <span class="mdc-image-list__label mdc-typography--caption" style="padding-inline: .25rem">Text label</span>
@@ -245,7 +246,7 @@
         <div class="card card-order">
           <div class="card-order--header">
             <div class="card-order--header-text">
-              <h3 class="mdc-typography--headline3">Rendelés</h3>      
+              <h2 class="mdc-typography--headline3">Rendelés</h2>      
               <p class="mdc-typography--body1">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
               </p>
@@ -253,33 +254,33 @@
             <div class="card-order--header-email">
               <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">alternate_email</i>
-                <input type="email" autocomplete="email" class="mdc-text-field__input" id="text-field-hero-input">
+                <input type="email" autocomplete="email" class="mdc-text-field__input" id="m-email">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" class="mdc-floating-label">E-mail</label>
+                    <label for="m-email" class="mdc-floating-label">E-mail</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
               </div>
               <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">phone</i>
-                <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="text-field-hero-input">
+                <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="m-phone">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" class="mdc-floating-label">Telefon</label>
+                    <label for="m-phone" class="mdc-floating-label">Telefon</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
               </div>
               <!-- <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">alternate_email</i>
-                <input class="mdc-text-field__input" id="text-field-hero-input">
+                <input class="mdc-text-field__input" id="body">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" claemailss="mdc-floating-label">E-mail</label>
+                    <label for="body" claemailss="mdc-floating-label">E-mail</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
@@ -290,12 +291,12 @@
             <span class="mdc-notched-outline">
               <span class="mdc-notched-outline__leading"></span>
               <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">Mit adhatunk?</label>
+                <label for="m-body" class="mdc-floating-label">Mit adhatunk?</label>
               </div>
               <span class="mdc-notched-outline__trailing"></span>
             </span>
             <!-- <span class="mdc-text-field__resizer"> -->
-              <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
+              <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" id="m-body" aria-label="Mit adhatunk?"></textarea>
               <!-- </span> -->
             </div>
             <div class="card-order--submit mdc-touch-target-wrapper">
