@@ -8,23 +8,23 @@
 	<link rel="stylesheet" href="/static/annapastry/bundle.css" data-th-href="${'/annapastry/bundle.css'}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 </head>
-<body class="product-page mdc-typography container-parent" style="min-height: 100vh; width: 100vw;">
+<body class="product-page mdc-typography container-parent" style="min-height: 100vh; width: 100%;">
   <header>
     
   </header>
   <main class="product">
     <div class="product-header">
       <section class="product-detail">
-        <div class="mdc-typography--caption">
-          <a href="/" data-th-href="${'/'}"  class="mdc-button button-on-surface mdc-button--leading" style="text-transform: none; height: 1.5rem; font-size: .8rem; color: #4b5d4b; font-family: var(--mdc-typography-caption-font-family,var(--mdc-typography-font-family,));">
+        <div class="breadcrumb">
+          <a href="/" data-th-href="${'/'}"  class="breadcrumb-item mdc-button button-on-surface mdc-button--leading">
             <span class="mdc-button__ripple" style="font-size: .7rem;"></span>
             <span class="material-icons mdc-button__icon">home</span>
             <span>Kezdőlap</span>
           </a>
-          <span style="display: inline-flex; height: 1.5rem; font-size: .8rem; color: #4b5d4b; align-items: center;">
-            <span style="height: .125rem; width: .6rem; border-top: solid 1px #4b5d4b; box-sizing: content-box;"></span>
+          <span class="breadcrumb-divider">
+            <span class="breadcrumb-divider--dash"></span>
           </span>
-          <a href="#" class="mdc-button button-on-surface mdc-button--leading" style="text-transform: none; height: 1.5rem; font-size: .8rem; color: #4b5d4b; font-family: var(--mdc-typography-caption-font-family,var(--mdc-typography-font-family,));">
+          <a href="#" class="breadcrumb-item mdc-button button-on-surface mdc-button--leading">
             <span class="mdc-button__ripple" style="font-size: .7rem;"></span>
             <span class="material-icons mdc-button__icon">cake</span>
             <span>Egy specifikus termék</span>

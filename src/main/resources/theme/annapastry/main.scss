@@ -113,6 +113,7 @@ with (
 @import './container';
 @import './cards';
 @import './details-summary';
+@import './breadcrumb';
 
 body {
   @include theme.property(background-color, "surface");
@@ -181,7 +182,7 @@ body {
 .jumbotron {
   position: relative;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-flow: column;
 
@@ -233,7 +234,7 @@ body {
   &--menu {
     min-height: 100vh;
     min-width: 40ch;
-    min-width: calc(min(40ch, 100vw));
+    min-width: calc(min(40ch, 100%));
     flex: 1 1 40%;
     display: flex;
     flex-flow: column wrap;
