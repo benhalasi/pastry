@@ -4,58 +4,90 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title data-th-text="${content.title}">Apastry</title>
-	<link rel="stylesheet" href="/static/annapastry/bundle.css">
+  <meta name="description" content="content">
+	<title>Pastry</title>
+	<link rel="stylesheet" href="/static/annapastry/bundle.css" data-th-href="${'/annapastry/bundle.css'}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 </head>
 <body class="mdc-typography container-parent" style="min-height: 100vh; width: 100%;">
-  <main class="about" style="width: 100%; display: flex; flex-flow: row wrap; padding: 1rem; row-gap: 1rem; column-gap: 2rem;">
-    <img src="https://picsum.photos/id/1080/500/800" alt="" style="border-radius: .5rem; flex: 1 1 30%">
+  <main class="about container" style="flex: 1 0 auto; display: flex; flex-flow: row nowrap; padding: 1rem; row-gap: 1rem; column-gap: 2rem;">
     <section style="flex: 1 1 60ch;">
-      <div class="breadcrumb mdc-typography--caption" style="font-size: 1rem;">
-        <a class="breadcrumb-item" href="#">welcome page</a>
-        <a class="breadcrumb-item" href="#">product xzy</a>
+      <div class="breadcrumb">
+        <a href="/" data-th-href="${'/'}"  class="breadcrumb-item mdc-button button-on-surface mdc-button--leading">
+          <span class="mdc-button__ripple"></span>
+          <span class="material-icons mdc-button__icon">home</span>
+          <span>Home</span>
+        </a>
+        <span class="breadcrumb-divider">
+          <span class="breadcrumb-divider--dash"></span>
+        </span>
+        <a href="#" class="breadcrumb-item mdc-button button-on-surface mdc-button--leading">
+          <span class="mdc-button__ripple"></span>
+          <span class="material-icons mdc-button__icon">auto_awesome</span>
+          <span>About us</span>
+        </a>
       </div>
-      <h1 class="mdc-typography--headline2" style="margin-block: 1rem;">A cukrászda</h1>
+      <h1 class="mdc-typography--headline2" style="margin-block: 1rem;">The Pastry</h1>
       <p class="mdc-typography--body1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.</p>
       <p class="mdc-typography--body1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.</p>
       <h2 class="mdc-typography--headline3" style="margin-block: 1rem;">Lorem ipsum</h2>
-      <p class="mdc-typography--body1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.</p>
+      <p class="mdc-typography--body1" style="display: flex; flex-flow: row wrap; gap: 1rem">
+        <img loading="lazy" class="on-mobile" alt="A picture about us" title="A picture about us" src="/static/_/about/about-1.jpg" style="border-radius: .5rem; flex: 1 1 150px; max-width: 100%; width: 200px; max-height: 200px; object-fit: cover;">
+        <span style="flex: 1 1 30ch; max-width: 60ch;">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.
+        </span>
+      </p>
       <h2 class="mdc-typography--headline3" style="margin-block: 1rem;">Dolor sit amet</h2>
-      <p class="mdc-typography--body1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.</p>
+      <p class="mdc-typography--body1" style="display: flex; flex-flow: row wrap; gap: 1rem">
+        <span style="flex: 1 1 30ch; max-width: 60ch;">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores iusto tempora ullam at libero laudantium debitis in cum vel harum repellendus minima quasi exercitationem, animi repudiandae facilis incidunt impedit aliquid.
+        </span>
+        <img loading="lazy" class="on-mobile" alt="A picture about us" title="A picture about us" src="/static/_/about/about-2.jpg" style="border-radius: .5rem; flex: 1 1 150px; max-width: 100%; width: 200px; max-height: 200px; object-fit: cover;">
+      </p>
       <div style="margin-top: 2rem;">
         <div class="mdc-touch-target-wrapper">
-          <a href="mailto:us@example.com" class="mdc-button button-on-surface mdc-button--leading">
+          <a href="mailto:us@example.com" class="mdc-button button-on-surface mdc-button--leading" style="text-transform: none;">
             <span class="mdc-button__ripple"></span>
             <span class="material-icons mdc-button__icon">email</span>
             <span>us@example.com</span>
           </a>
         </div><br>
         <div class="mdc-touch-target-wrapper">
-          <a href="tel:+361234123X" class="mdc-button button-on-surface mdc-button--leading">
+          <a href="tel:+361234123X" class="mdc-button button-on-surface mdc-button--leading" style="text-transform: none;">
             <span class="mdc-button__ripple"></span>
             <span class="material-icons mdc-button__icon">phone</span>
-            <span>+ 36 number number</span>
+            <span>+99 number number</span>
           </a>
         </div><br>
         <div class="mdc-touch-target-wrapper">
-          <a href="#" class="mdc-button button-on-surface mdc-button--leading">
+          <a href="#" class="mdc-button button-on-surface mdc-button--leading" style="text-transform: none;">
             <span class="mdc-button__ripple"></span>
             <span class="material-icons mdc-button__icon">place</span>
-            <span>Utca u. 9, Budapest, 9999</span>
+            <span>Street s. 9, Amsterdam, 9999</span>
           </a>
         </div><br>
 
       </div>
     </section>
-    <img src="https://picsum.photos/id/1080/500/800" alt="" style="border-radius: .5rem; flex: 1 1 30%">
+    <img loading="lazy" class="on-desktop" alt="A picture about us" title="A picture about us" src="/static/_/about/about-1.jpg" style="border-radius: .5rem; flex: 1 9 30%; width: 30%; aspect-ratio: 5/8; object-fit: cover; order: -1">
+    <img loading="lazy" class="on-desktop" alt="A picture about us" title="A picture about us" src="/static/_/about/about-2.jpg" style="border-radius: .5rem; flex: 1 9 30%; width: 30%; aspect-ratio: 5/8; object-fit: cover;">
+    <div class="on-tablet" style="flex: 1 1 50%; display: flex; flex-flow: column nowrap; gap: 1rem; align-items: center;">
+      <img loading="lazy" alt="A picture about us" title="A picture about us" src="/static/_/about/about-1.jpg" style="border-radius: .5rem; max-width: 30rem; height: 50%; flex: 1 1 300px; object-fit: cover;">
+      <img loading="lazy" alt="A picture about us" title="A picture about us" src="/static/_/about/about-2.jpg" style="border-radius: .5rem; max-width: 30rem; height: 50%; object-fit: cover;">
+    </div>
   </main>
-  <footer class="card-footer--wrapper" style="margin: 0; flex: 0 0 auto;">
+  <footer class="card-footer--wrapper">
     <section class="container" style="display: flex; justify-content: center;">
       <div class="card-footer">
-        <p>
-          Készült és karbantartott a <a href="#">dd.hu</a> által.
-        </p>  
+        <p style="display: inline-flex; gap: 1ch;">
+          <span>Built by</span>
+          <a class="mdc-button button-on-surface mdc-button--leading" href="https://github.com/benhalasi" target="_blank" rel="noopener noreferrer"  style="text-transform: none; height: 1.25rem; font-size: 0.875rem; color: #262f26; font-family: 'Inconsolata'; line-height: 1.25rem;">
+            <span class="mdc-button__ripple"></span>
+            <span class="material-icons mdc-button__icon">construction</span>
+            <span style="user-select: text;">me</span><span style="user-select: text;width: 0;overflow: hidden;">&nbsp;benedek.dev</span>
+          </a>
+          <span>.</span>
+        </p>
       </div>
     </section>
   </footer>

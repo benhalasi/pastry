@@ -164,7 +164,7 @@ body {
       padding-inline-start: .25rem;
     }
   }
-  
+
 }
 
 .mdc-fab {
@@ -217,7 +217,7 @@ body {
         opacity: 1;
       }
     }
-    
+
     image, img, video {
       position: absolute;
       $blur: 0px;
@@ -285,13 +285,12 @@ body {
 .card-list {
   @extend .container;
 
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-auto-rows: minmax(15rem, auto);
+  grid-template-columns: repeat(1,minmax(0,1fr));
+  justify-items: center;
   gap: .5rem;
   padding: .5rem;
-  align-items: flex-start;
-  align-content: stretch;
-  justify-content: center;
 
   .card-list-item {
     max-width: 50ch;
@@ -303,10 +302,11 @@ body {
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   .card-list {
 
     flex-wrap: nowrap;
+    grid-template-columns: repeat(2,minmax(0,1fr));
 
     .breaker {
       display: none;
@@ -371,7 +371,7 @@ body {
 
     flex: 1 0 auto;
     width: 100%;
-    
+
     &-header {
 
       width: 100%;
@@ -380,7 +380,7 @@ body {
       display: flex;
       flex-flow: column nowrap;
       gap: .5rem;
-  
+
       @media (min-width: $break-width) {
         // @include image-list.masonry-columns(3, .25rem);
         flex-flow: row-reverse nowrap;
@@ -453,7 +453,7 @@ body {
             display: flex;
             flex-flow: row nowrap;
             gap: .25rem;
-            
+
             span {
               flex: 0 1 auto;
               white-space: nowrap;

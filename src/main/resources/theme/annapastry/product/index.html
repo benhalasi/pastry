@@ -4,31 +4,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-th-text="${content.title}">Apastry</title>
-  <link rel="stylesheet" href="/static/annapastry/bundle.css">
+  <meta name="description" content="content">
+  <title>Pastry</title>
+  <link rel="stylesheet" href="/static/annapastry/bundle.css" data-th-href="${'/annapastry/bundle.css'}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 </head>
 <body class="product-page mdc-typography container-parent" style="min-height: 100vh; width: 100%;">
   <header>
-    
+
   </header>
   <main class="product">
     <div class="product-header">
       <section class="product-detail">
-        <div class="breadcrumb mdc-typography--caption" style="font-size: 1rem;">
-          <a class="breadcrumb-item" href="#">welcome page</a>
-          <a class="breadcrumb-item" href="#">product xzy</a>
+        <div class="breadcrumb">
+          <a href="/" data-th-href="${'/'}"  class="breadcrumb-item mdc-button button-on-surface mdc-button--leading">
+            <span class="mdc-button__ripple" style="font-size: .7rem;"></span>
+            <span class="material-icons mdc-button__icon">home</span>
+            <span>Home</span>
+          </a>
+          <span class="breadcrumb-divider">
+            <span class="breadcrumb-divider--dash"></span>
+          </span>
+          <a href="#" class="breadcrumb-item mdc-button button-on-surface mdc-button--leading">
+            <span class="mdc-button__ripple" style="font-size: .7rem;"></span>
+            <span class="material-icons mdc-button__icon">cake</span>
+            <span>A Specific Product</span>
+          </a>
         </div>
-        <h1 class="mdc-typography--headline2" style="margin-block: 1rem;">Egy specifikus termék</h1>
+        <h1 class="mdc-typography--headline2" style="margin-block: 1rem;">A Specific Product</h1>
         <span class="mdc-typography--overline">
-          12.000 HUF - Készeleten
+          <span style="font-size: 150%; opacity: .45;">€</span><span style="font-size: 150%;">5</span><sup>.50</sup> - in stock
           <span class="mdc-evolution-chip-set" role="grid">
             <span class="mdc-evolution-chip-set__chips" role="presentation">
               <span class="mdc-evolution-chip" role="row" id="c0">
                 <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
                   <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary" type="button" tabindex="0">
                     <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                    <span class="mdc-evolution-chip__text-label">Laktóz</span>
+                    <span class="mdc-evolution-chip__text-label">Lactose</span>
                   </button>
                 </span>
               </span>
@@ -36,16 +48,7 @@
                 <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
                   <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary" type="button" tabindex="0">
                     <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                    <span class="mdc-evolution-chip__text-label">Glutén</span>
-                  </button>
-                </span>
-              </span>
-              <span class="mdc-evolution-chip" role="row" id="c1">
-                <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-                  <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary" type="button" tabindex="0">
-                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                    <span class="material-icons mdc-evolution-chip__text-icon mdc-evolution-chip__text-icon--leading">block</span>
-                    <span class="mdc-evolution-chip__text-label">Laktózmentes</span>
+                    <span class="mdc-evolution-chip__text-label">Gluten</span>
                   </button>
                 </span>
               </span>
@@ -54,7 +57,16 @@
                   <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary" type="button" tabindex="0">
                     <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
                     <span class="material-icons mdc-evolution-chip__text-icon mdc-evolution-chip__text-icon--leading">block</span>
-                    <span class="mdc-evolution-chip__text-label">Gluténmentes</span>
+                    <span class="mdc-evolution-chip__text-label">Lactose-free</span>
+                  </button>
+                </span>
+              </span>
+              <span class="mdc-evolution-chip" role="row" id="c1">
+                <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
+                  <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary" type="button" tabindex="0">
+                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
+                    <span class="material-icons mdc-evolution-chip__text-icon mdc-evolution-chip__text-icon--leading">block</span>
+                    <span class="mdc-evolution-chip__text-label">Gluten-free</span>
                   </button>
                 </span>
               </span>
@@ -70,9 +82,9 @@
           </p>
         </div>
         <div class="product-detail_description--collapsible">
-          <h3 class="mdc-typography--headline4 product-detail_description--collapsible-trigger" style="margin-block: .75rem">
+          <h2 class="mdc-typography--headline4 product-detail_description--collapsible-trigger" style="margin-block: .75rem">
             <span>
-              Adagolás és összetevők
+              Dosage and ingredients
             </span>
             <button class="mdc-icon-button"
             aria-label="open"
@@ -81,7 +93,7 @@
             <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">expand_less</i>
             <i class="material-icons mdc-icon-button__icon">expand_more</i>
           </button>
-        </h3>
+        </h2>
         <div class="product-detail_description--collapsible-container">
           <div class="product-detail_description product-detail_description--collapsible-content">
             <p class="content product-detail_description--body2" style="flex-basis: 30ch;">
@@ -149,13 +161,13 @@
       <a href="#order-mobile" class="on-mobile mdc-button mdc-button--unelevated mdc-button--leading">
         <i class="material-icons mdc-button__icon" aria-hidden="true">add_shopping_cart</i>
         <span class="mdc-button__ripple"></span>
-        <span>Rendelés</span>
+        <span>order</span>
       </a>
       <section class="on-desktop" style="justify-content: center;" data-repeat="1">
         <div class="card--borderless card-order" style="padding: 0;">
           <div class="card-order--header">
             <div class="card-order--header-text">
-              <h3 class="mdc-typography--headline3">Rendelés</h3>      
+              <h2 class="mdc-typography--headline3">Contact us</h2>
               <p class="mdc-typography--body1">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
               </p>
@@ -163,50 +175,37 @@
             <div class="card-order--header-email">
               <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">alternate_email</i>
-                <input type="email" autocomplete="email" class="mdc-text-field__input" id="text-field-hero-input">
+                <input type="email" autocomplete="email" class="mdc-text-field__input" id="email">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" class="mdc-floating-label">E-mail</label>
+                    <label for="email" class="mdc-floating-label">Email</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
               </div>
               <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">phone</i>
-                <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="text-field-hero-input">
+                <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="phone">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" class="mdc-floating-label">Telefon</label>
+                    <label for="body" class="mdc-floating-label">Phone</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
               </div>
-              <!-- <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">alternate_email</i>
-                <input class="mdc-text-field__input" id="text-field-hero-input">
-                <div class="mdc-notched-outline">
-                  <div class="mdc-notched-outline__leading"></div>
-                  <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" claemailss="mdc-floating-label">E-mail</label>
-                  </div>
-                  <div class="mdc-notched-outline__trailing"></div>
-                </div>
-              </div> -->
             </div>
           </div>
           <div id="order" class="card-order--body mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label">
             <span class="mdc-notched-outline">
               <span class="mdc-notched-outline__leading"></span>
               <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">Mit adhatunk?</label>
+                <label for="body" class="mdc-floating-label">How could we help you?</label>
               </div>
               <span class="mdc-notched-outline__trailing"></span>
             </span>
-            <!-- <span class="mdc-text-field__resizer"> -->
-              <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
-              <!-- </span> -->
+              <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" aria-label="How could we help you?"></textarea>
             </div>
             <div class="card-order--submit mdc-touch-target-wrapper">
               <button class="mdc-fab mdc-fab--touch">
@@ -221,20 +220,37 @@
       <div class="product-header--divider"></div>
       <section class="product-header--gallery">
         <ul class="mdc-image-list mdc-image-list--masonry image-list">
-          <li class="mdc-image-list__item" data-repeat="6">
-            <img class="mdc-image-list__image" src="#" data-needs-src data-wm="600" data-wx="1200" data-hm="800" data-hx="1200">
-            <!-- <img class="mdc-image-list__image" src="#" data-needs-src data-wm="1000" data-wx="1000" data-hm="800" data-hx="800"> -->
-            <div class="mdc-image-list__supporting">
-              <span class="mdc-image-list__label mdc-typography--caption" style="padding-inline: .25rem">Text label</span>
-            </div>
+          <li class="mdc-image-list__item">
+            <img loading="lazy" class="mdc-image-list__image" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-1.jpg">
+          </li>
+          <li class="mdc-image-list__item">
+            <img loading="lazy" class="mdc-image-list__image" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-2.jpg">
+          </li>
+          <li class="mdc-image-list__item">
+            <img loading="lazy" class="mdc-image-list__image" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-5.jpg">
+          </li>
+          <li class="mdc-image-list__item">
+            <img loading="lazy" class="mdc-image-list__image" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-3.jpg">
+          </li>
+          <li class="mdc-image-list__item">
+            <img loading="lazy" class="mdc-image-list__image" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-5.jpg">
+          </li>
+          <li class="mdc-image-list__item">
+            <img loading="lazy" class="mdc-image-list__image" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-5.jpg">
+          </li>
+          <li class="mdc-image-list__item">
+            <img loading="lazy" class="mdc-image-list__image" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-6.jpg">
+          </li>
+          <li class="mdc-image-list__item">
+            <img loading="lazy" class="mdc-image-list__image" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-1.jpg">
           </li>
         </ul>
       </section>
-      <section class="on-mobile card-list container" style="margin-top: 2rem; justify-content: center;" data-repeat="1">
+      <section id="order-mobile" class="on-mobile flex-container" style="margin-top: 2rem; justify-content: center;" data-repeat="1">
         <div class="card card-order">
           <div class="card-order--header">
             <div class="card-order--header-text">
-              <h3 class="mdc-typography--headline3">Rendelés</h3>      
+              <h2 class="mdc-typography--headline3">Contact us</h2>
               <p class="mdc-typography--body1">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
               </p>
@@ -242,71 +258,65 @@
             <div class="card-order--header-email">
               <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">alternate_email</i>
-                <input type="email" autocomplete="email" class="mdc-text-field__input" id="text-field-hero-input">
+                <input type="email" autocomplete="email" class="mdc-text-field__input" id="email">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" class="mdc-floating-label">E-mail</label>
+                    <label for="email" class="mdc-floating-label">E-mail</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
               </div>
               <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
                 <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">phone</i>
-                <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="text-field-hero-input">
+                <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="phone">
                 <div class="mdc-notched-outline">
                   <div class="mdc-notched-outline__leading"></div>
                   <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" class="mdc-floating-label">Telefon</label>
+                    <label for="phone" class="mdc-floating-label">Phone</label>
                   </div>
                   <div class="mdc-notched-outline__trailing"></div>
                 </div>
               </div>
-              <!-- <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">alternate_email</i>
-                <input class="mdc-text-field__input" id="text-field-hero-input">
-                <div class="mdc-notched-outline">
-                  <div class="mdc-notched-outline__leading"></div>
-                  <div class="mdc-notched-outline__notch">
-                    <label for="text-field-hero-input" claemailss="mdc-floating-label">E-mail</label>
-                  </div>
-                  <div class="mdc-notched-outline__trailing"></div>
-                </div>
-              </div> -->
             </div>
           </div>
-          <div id="order-mobile" class="card-order--body mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label">
+          <div class="card-order--body mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label">
             <span class="mdc-notched-outline">
               <span class="mdc-notched-outline__leading"></span>
               <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">Mit adhatunk?</label>
+                <label for="body" class="mdc-floating-label">How could we help you?</label>
               </div>
               <span class="mdc-notched-outline__trailing"></span>
             </span>
-            <!-- <span class="mdc-text-field__resizer"> -->
-              <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
-              <!-- </span> -->
-            </div>
-            <div class="card-order--submit mdc-touch-target-wrapper">
-              <button class="mdc-fab mdc-fab--touch">
-                <div class="mdc-fab__ripple"></div>
-                <span class="material-icons mdc-fab__icon">mail</span>
-                <div class="mdc-fab__touch"></div>
-              </button>
-            </div>
+            <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" id="body" aria-label="How could we help you?"></textarea>
           </div>
-        </section>
+          <div class="card-order--submit mdc-touch-target-wrapper">
+            <button class="mdc-fab mdc-fab--touch">
+              <div class="mdc-fab__ripple"></div>
+              <span class="material-icons mdc-fab__icon">mail</span>
+              <div class="mdc-fab__touch"></div>
+            </button>
+          </div>
+        </div>
       </section>
     </div>
   </main>
-  <footer class="card-footer--wrapper" style="flex: 0 0 auto;">
+
+  <footer class="card-footer--wrapper">
     <section class="container" style="display: flex; justify-content: center;">
       <div class="card-footer">
-        <p>
-          Készült és karbantartott a <a href="#">dd.hu</a> által.
-        </p>  
+        <p style="display: inline-flex; gap: 1ch;">
+          <span>Built by</span>
+          <a class="mdc-button button-on-surface mdc-button--leading" href="https://github.com/benhalasi" target="_blank" rel="noopener noreferrer"  style="text-transform: none; height: 1.25rem; font-size: 0.875rem; color: #262f26; font-family: 'Inconsolata'; line-height: 1.25rem;">
+            <span class="mdc-button__ripple"></span>
+            <span class="material-icons mdc-button__icon">construction</span>
+            <span style="user-select: text;">me</span><span style="user-select: text;width: 0;overflow: hidden;">&nbsp;benedek.dev</span>
+          </a>
+          <span>.</span>
+        </p>
       </div>
     </section>
   </footer>
-  <script src="/static/annapastry/bundle.js"></script>
+
+  <script  src="/static/annapastry/bundle.js" data-th-src="${'/annapastry/bundle.js'}"></script>
 </body>

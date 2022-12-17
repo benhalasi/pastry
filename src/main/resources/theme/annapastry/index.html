@@ -4,114 +4,91 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title data-th-text="${content.title}">Apastry</title>
-	<link rel="stylesheet" href="/static/annapastry/bundle.css">
+  <meta name="description" content="content">
+	<title>Pastry</title>
+	<link rel="stylesheet" href="/static/annapastry/bundle.css" data-th-href="${'/annapastry/bundle.css'}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 </head>
 <body class="mdc-typography container-parent" style="min-height: 100vh; width: 100%;">
-  <!-- <header class=" mdc-top-app-bar">
-    <div class="mdc-top-app-bar__row">
-      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button><span class="mdc-top-app-bar__title">San Francisco, CA</span> </section>
-      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-        <button class="mdc-icon-button material-icons" aria-label="Download">
-          <div class="mdc-icon-button__ripple"></div>
-          file_download
-        </button>
-        <button class="mdc-icon-button material-icons" aria-label="Print this page">print</button>
-        <button class="mdc-icon-button material-icons" aria-label="Bookmark this page">bookmark</button>
-      </section>
-    </div>
-  </header> -->
 
   <main class="jumbotron">
     <div class="jumbotron--underlay">
-      <image src="/static/_/fluid.png"></image>
-      <video src="/static/_/fluidx.mov" preload="auto" autoplay loop muted></video>
+      <img class="thumbnail" data-th-alt="${jumbotron.alt}" src="/static/_/main/main.thumbnail.jpg" data-th-src="@{${thumbnail.src}}">
+      <img loading="lazy" class="lazy" data-th-alt="${jumbotron.alt}" src="/static/_/main/main.jpg" data-th-src="@{${jumbotron.src}}">
     </div>
     <section class="jumbotron--menu">
-      <h1 class="jumbotron--menu--headline mdc-typography--headline1">CUKRÁSZDA</h1>
+      <h1 class="jumbotron--menu--headline mdc-typography--headline1">PASTRY</h1>
       <button class="jumbotron--menu--button mdc-button mdc-button--outlined mdc-button--leading">
         <span class="mdc-button__ripple"></span>
         <i class="material-icons mdc-button__icon" aria-hidden="true"
           >menu_book</i
         >
-        <span class="mdc-button__label">kínálat</span>
+        <span class="mdc-button__label">our offer</span>
       </button>
       <a href="#order" class="jumbotron--menu--button mdc-button mdc-button--outlined mdc-button--leading">
         <span class="mdc-button__ripple"></span>
         <i class="material-icons mdc-button__icon" aria-hidden="true"
           >add_shopping_cart</i
         >
-        <span class="mdc-button__label">rendelés</span>
+        <span class="mdc-button__label">order</span>
       </a>
       <button class="jumbotron--menu--button mdc-button mdc-button--outlined mdc-button--leading">
         <span class="mdc-button__ripple"></span>
         <i class="material-icons mdc-button__icon" aria-hidden="true"
           >rss_feed</i
         >
-        <span class="mdc-button__label">napló</span>
+        <span class="mdc-button__label">diary</span>
       </button>
-      <a href="/annapastry/about" class="jumbotron--menu--button mdc-button mdc-button--outlined mdc-button--leading">
+      <a href="/annapastry/about" data-th-href="${'/about'}" class="jumbotron--menu--button mdc-button mdc-button--outlined mdc-button--leading">
         <span class="mdc-button__ripple"></span>
         <i class="material-icons mdc-button__icon" aria-hidden="true"
           >auto_awesome</i
         >
-        <span class="mdc-button__label">rólunk</span>
+        <span class="mdc-button__label">about us</span>
       </a>
     </section>
-    <!-- <section class="jumbotron--promo">
-    </section> -->
   </main>
 
-  <section class="card-list container" data-repeat="2">
+  <div style="height: 2.5rem;"></div>
+
+  <section class="card-list" data-th-each="row : ${rows}">
     <div class="card card--borderless card-list-item">
-      <h2 class="mdc-typography--headline2">A list of things</h2>      
+      <h2 class="mdc-typography--headline2">A List of Some Products</h2>
       <p class="mdc-typography--body2" data-repeat="2">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
       </p>
     </div>
-    <div class="card card--borderless card-list-item" data-repeat="3">
-      <div class="mdc-card__primary-action card__primary-action" tabindex="0">
-        <image class="mdc-card__media mdc-card__media--16-9" src="https://picsum.photos/id/1080/400/300" data-needs-src></image>
-        <!-- <image class="mdc-card__media mdc-card__media--16-9" src="https://picsum.photos/id/1080/400/300"></image> -->
-      </div>
-      <div class="card__primary">
-        <h2 class="card__title mdc-typography mdc-typography--headline6">Some news about things</h2>
-      </div>
+      <div class="card card--borderless card-list-item" data-repeat="3">
+        <div class="mdc-card__primary-action card__primary-action" tabindex="0">
+          <img loading="lazy" class="mdc-card__media mdc-card__media--16-9" alt="The picture of a product" title="The picture of a product" src="/static/_/product/prod-4.jpg">
+        </div>
+        <div class="card__primary">
+          <h3 class="card__title mdc-typography mdc-typography--headline6">A Product, with picture and description</h3>
+        </div>
 
-      <div class="card__secondary mdc-typography mdc-typography--body1">
-        Fugit temporibus, quisquam dolores ducimus debitis quibusdam, rerum totam, odit perferendis eveniet ad? Necessitatibus, nemo labore. Ipsum velit eveniet possimus voluptates exercitationem?
-      </div>
-      <!-- <div class="mdc-card__actions">
-        <div class="mdc-card__action-buttons">
-          <button class="mdc-button button-on-surface mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Read</button>
-          <button class="mdc-button button-on-surface mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Bookmark</button>
+        <div class="card__secondary mdc-typography mdc-typography--body1">
+          Fugit temporibus, quisquam dolores ducimus debitis quibusdam, rerum totam, odit perferendis eveniet ad? Necessitatibus, nemo labore. Ipsum velit eveniet possimus voluptates exercitationem?
         </div>
-        <div class="mdc-card__action-icons">
-          <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites">
-            <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
-            <i class="material-icons mdc-icon-button__icon">favorite_border</i>
-          </button>
-          <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="Share" data-mdc-ripple-is-unbounded="true">share</button>
-          <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="More options" data-mdc-ripple-is-unbounded="true">more_vert</button>
-        </div>
-      </div> -->
-
-      <div class="mdc-card__actions card__actions">
-        <div class="mdc-card__action-buttons">
-          <a href="/annapastry/product" class="mdc-button button-on-surface mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Read</a>
-          <a href="#" class="mdc-button button-on-surface mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Bookmark</a>
+        <div class="mdc-card__actions" style="padding-inline: 0;">
+          <div class="mdc-card__action-buttons card__actions">
+            <a href="/annapastry/product" data-th-href="${'/product'}" class="mdc-button button-on-surface mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span>Details</a>
+          </div>
+          <div class="mdc-card__action-icons" style="padding-inline: 0;">
+            <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites">
+              <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+              <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+            </button>
+            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="Share" data-mdc-ripple-is-unbounded="true">share</button>
+          </div>
         </div>
       </div>
-    </div>
   </section>
 
-  <section class="card-list container" style="margin-top: 2rem; justify-content: center;" data-repeat="1">
+  <section class="container" style="display: flex; margin-top: 2rem; justify-content: center;" data-repeat="1">
     <div class="card card-order">
       <div class="card-order--header">
         <div class="card-order--header-text">
-          <h3 class="mdc-typography--headline3">Rendelés</h3>      
+          <h2 class="mdc-typography--headline3">Contact us</h2>
           <p class="mdc-typography--body1">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium animi vitae perspiciatis minima iste voluptatibus omnis tenetur possimus, est autem eligendi beatae velit quam. Delectus ab dolore non quis est?
           </p>
@@ -119,50 +96,37 @@
         <div class="card-order--header-email">
           <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
             <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">alternate_email</i>
-            <input type="email" autocomplete="email" class="mdc-text-field__input" id="text-field-hero-input">
+            <input type="email" autocomplete="email" class="mdc-text-field__input" id="email">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">E-mail</label>
+                <label for="email" class="mdc-floating-label">Email</label>
               </div>
               <div class="mdc-notched-outline__trailing"></div>
             </div>
           </div>
           <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
             <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="-1" role="button">phone</i>
-            <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="text-field-hero-input">
+            <input type="tel" autocomplete="tel" class="mdc-text-field__input" id="phone">
             <div class="mdc-notched-outline">
               <div class="mdc-notched-outline__leading"></div>
               <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" class="mdc-floating-label">Telefon</label>
+                <label for="phone" class="mdc-floating-label">Phone</label>
               </div>
               <div class="mdc-notched-outline__trailing"></div>
             </div>
           </div>
-          <!-- <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-            <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">alternate_email</i>
-            <input class="mdc-text-field__input" id="text-field-hero-input">
-            <div class="mdc-notched-outline">
-              <div class="mdc-notched-outline__leading"></div>
-              <div class="mdc-notched-outline__notch">
-                <label for="text-field-hero-input" claemailss="mdc-floating-label">E-mail</label>
-              </div>
-              <div class="mdc-notched-outline__trailing"></div>
-            </div>
-          </div> -->
         </div>
       </div>
       <div id="order" class="card-order--body mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label">
         <span class="mdc-notched-outline">
           <span class="mdc-notched-outline__leading"></span>
           <div class="mdc-notched-outline__notch">
-            <label for="text-field-hero-input" class="mdc-floating-label">Mit adhatunk?</label>
+            <label for="body" class="mdc-floating-label">How could we help you?</label>
           </div>
           <span class="mdc-notched-outline__trailing"></span>
         </span>
-        <!-- <span class="mdc-text-field__resizer"> -->
-          <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
-        <!-- </span> -->
+          <textarea autocomplete="on" class="mdc-text-field__input" rows="8" cols="40" id="body" aria-label="How could we help you?"></textarea>
       </div>
       <div class="card-order--submit mdc-touch-target-wrapper">
         <button class="mdc-fab mdc-fab--touch">
@@ -174,16 +138,22 @@
     </div>
   </section>
 
-  <div class="card-footer--wrapper">
-    <section class="container card-list" style="display: flex; justify-content: center;">
+  <footer class="card-footer--wrapper">
+    <section class="container" style="display: flex; justify-content: center;">
       <div class="card-footer">
-        <p>
-          Készült és karbantartott a <a href="#">dd.hu</a> által.
-        </p>  
+        <p style="display: inline-flex; gap: 1ch;">
+          <span>Built by</span>
+          <a class="mdc-button button-on-surface mdc-button--leading" href="https://github.com/benhalasi" target="_blank" rel="noopener noreferrer"  style="text-transform: none; height: 1.25rem; font-size: 0.875rem; color: #262f26; font-family: 'Inconsolata'; line-height: 1.25rem;">
+            <span class="mdc-button__ripple"></span>
+            <span class="material-icons mdc-button__icon">construction</span>
+            <span style="user-select: text;">me</span><span style="user-select: text;width: 0;overflow: hidden;">&nbsp;benedek.dev</span>
+          </a>
+          <span>.</span>
+        </p>
       </div>
     </section>
-  </div>
+  </footer>
 
 
-  <script src="/static/annapastry/bundle.js"></script>
+  <script  src="/static/annapastry/bundle.js" data-th-src="${'/annapastry/bundle.js'}"></script>
 </body>
